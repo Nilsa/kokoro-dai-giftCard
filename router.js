@@ -4,6 +4,8 @@
 const _user = require('./lib/handlers/user');
 const _token = require('./lib/handlers/token');
 const _web = require('./lib/handlers/web');
+const _rule = require('./lib/handlers/rule');
+
 
 
 const errorHandlers = {
@@ -14,6 +16,8 @@ const errorHandlers = {
 
 const routerPaths = {
   '': _web.index,
+  'rules': _rule.handlers, //preguntar porque iria api/etc..
+
   'account/create': _web.accountCreate,
   'account/created': _web.accountCreated,
   'account/edit': _web.accountEdit,
@@ -21,12 +25,11 @@ const routerPaths = {
   'session/create': _web.sessionCreate,
   'session/deleted': _web.sessionDeleted,
   'rules/all': _web.rulesList,
-  'rules/create': _web.rulesCreate,
+  'rules/create': _web.rulesCreate,  
   'rules/edit': _web.rulesEdit,
   'gift/all': _web.giftList,
   'api/users': _user.handlers,
-  'api/tokens': _token.handlers,
-  'api/rules': _rules.handlers,
+  'api/tokens': _token.handlers,  
   'favicon.ico' : _web.favicon,
   'public' : _web.public
 };
@@ -42,6 +45,7 @@ const router = {};
 **------------------------------------------------------*/
 
 router.route = function(path, data, res) {
+  
   // Check the router for a matching path for a handler. If one is not found, use the notFound handler instead.
   var chosenHandler = typeof(routerPaths[path]) !== 'undefined' ? routerPaths[path] : errorHandlers.notFound;
   
