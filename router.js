@@ -16,7 +16,7 @@ const errorHandlers = {
 
 const routerPaths = {
   '': _web.index,
-  'rules': _rule.handlers, //preguntar porque iria api/etc..
+  'api/rules': _rule.handlers, //preguntar porque iria api/etc..
 
   'account/create': _web.accountCreate,
   'account/created': _web.accountCreated,
@@ -27,7 +27,7 @@ const routerPaths = {
   'rules/all': _web.rulesList,
   'rules/create': _web.rulesCreate,  
   'rules/edit': _web.rulesEdit,
-  'gift/all': _web.giftList,
+  //'gift/all': _web.giftList,
   'api/users': _user.handlers,
   'api/tokens': _token.handlers,  
   'favicon.ico' : _web.favicon,

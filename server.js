@@ -36,11 +36,10 @@ server.httpsServerOptions = {
 
 server.unifiedServer = function(req, res) {
   // Parse the url
-  const parsedUrl = url.parse(req.url, true);
-
-  // Get the path
+   const parsedUrl = url.parse(req.url, true);
+   // Get the path
   const path = parsedUrl.pathname.replace(/^\/+|\/+$/g, '');  
-
+  
   // Get the method and headers
   const method = req.method.toLowerCase(),
     headers = req.headers;
